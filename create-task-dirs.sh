@@ -9,7 +9,6 @@ for d in $(seq -w 01 24); do
   cp "${own_dir}/util.py" "${tgt_dir}/util.py"
   first_script="${tgt_dir}/${d}.py"
   if [ ! -f "${first_script}" ]; then
-    echo '#!/usr/bin/env python' > "${first_script}"
-    chmod +x "${first_script}"
+    cp "${own_dir}/first-script.py" "${first_script}"
   fi
 done
