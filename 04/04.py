@@ -13,6 +13,7 @@ def rangeset(rangestr):
 
 def main():
     subset_pairs = 0
+    intersecting_pairs = 0
 
     with open(util.input_file) as f:
         for line in f.readlines():
@@ -25,7 +26,10 @@ def main():
             if leftset.issubset(rightset) or rightset.issubset(leftset):
                 subset_pairs += 1
 
-    print(subset_pairs)
+            if leftset & rightset:
+                intersecting_pairs += 1
+
+    print(f'{subset_pairs=} {intersecting_pairs=}')
 
 
 if __name__ == '__main__':
